@@ -13,8 +13,9 @@
       <h4 class="my-0 font-weight-normal">Sign Up Today</h4>
     </div>
     <div class="card-body">
+      <p>Click below to get started.</p>
       <%#= render "" %>
-      <%#= <button type="button" class="btn btn-lg btn-block btn-primary">Get started</button> %>
+      <%= link_to "Sign up now", new_user_registration_path, class: "btn btn-lg btn-block btn-primary" %>
     </div>
   </div>
 </div>
