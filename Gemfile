@@ -18,6 +18,9 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 
+# image uploads to Amazon S3
+gem "aws-sdk-s3", require: false
+
 group :development do
   gem 'web-console', '>= 3.3.0'
 end
