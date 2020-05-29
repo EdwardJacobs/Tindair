@@ -1,1 +1,10 @@
-browse.html.erb
+<ul id="slides">
+  <% @users.each do |user| %>
+  <div class="slide" data-id="<%= user.id %>">
+    <p><%= user.first_name %></p>
+  </div>
+  <% end %>
+</ul>
+
+<button class="controls" id="previous">No</button>
+<button class="controls" id="next">Yes</button>
