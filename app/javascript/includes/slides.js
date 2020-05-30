@@ -1,16 +1,29 @@
-var slides = document.querySelectorAll('#slides .slide');
-var currentSlide = 0
+$(function() {
+  var $activeSlide = $('#slides .slide:first-child')
 
-function nextSlide() {
-  goToSlide(currentSlide+1);
-}
+  $activeSlide.addClass('showing');
 
-function previousSlide() {
-  goToSlide(currentSlide-1);
-}
+  $("#decline").on("click", function(){
+    goToSlide('decline');
+  })
 
-function goToSlide(n) {
-  slides[currentSlide].className = 'slide';
-  currentSlide = (n+slides.length)%slides.length;
-  slides[currentSlide].className = 'slide showing';
-}
+  $("#approve").on("click", function(){
+    goToSlide('approve');
+  })
+
+
+  function goToSlide(action) {
+    $activeSlide.removeClass('showing');
+    $activeSlide = $activeSlide.next(".slide");
+    if (action == "approve") {
+      console.log(action)
+    } else {
+      console.log(action)
+    }
+
+    $activeSlide.next(".slide").addClass("showing");
+
+  }
+});
+
+
