@@ -21,16 +21,12 @@
                 hint: "we need your current password to confirm your changes",
                 required: true,
                 input_html: { autocomplete: "current-password" } %>
+    <%= f.input :photos, as: :file, input_html: { multiple: true }  %>
   </div>
 
-  <div class="input-group">
-    <%= f.label :images %>
-    <%= f.file_field :images, multiple: true %>
-  </div>
-
-  <% if resource.images.attached? %>
-    <% resource.images.each do |image| %>
-      <%= image_tag image, width: "200px" %>
+  <% if resource.photos.attached? %>
+    <% resource.photos.each do |photo| %>
+      <%= cl_image_tag photo.key, width: "200px" %>
     <% end %>
   <% end %>
 

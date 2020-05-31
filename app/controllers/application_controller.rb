@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   private
 
   def configure_devise
-    devise_parameter_sanitizer.permit(:user_update, keys: [ :first_name, :last_name, :username, images: [] ])
+    devise_parameter_sanitizer.permit(:user_update, keys: [ :first_name, :last_name, :username, photos: [] ])
   end
 
 end
