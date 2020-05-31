@@ -1,7 +1,9 @@
 <ul id="slides">
   <% @users.each_with_index do |user, i| %>
   <li class="slide <%= 'showing' if i == 0 %>" data-id="<%= user.id %>">
-
+    <% user.images.each do |image| %>
+    <%= image_tag(user.image) %>
+    <% end %>
     <p><%= user.first_name %></p>
   </li>
   <% end %>

@@ -2,9 +2,8 @@ source 'https://rubygems.org'
 ruby '2.6.4'
 
 gem 'bootsnap', require: false
-gem 'cloudinary', '~> 1.12.0'
-gem 'carrierwave', '~> 1.2'
 gem 'devise'
+gem 'figaro'
 gem 'hub'
 #gem 'jbuilder', '~> 2.0'
 gem 'pg', '~> 0.21'

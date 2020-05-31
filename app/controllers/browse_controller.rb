@@ -11,4 +11,7 @@ class BrowseController < ApplicationController
   def decline
 
   end
+
+  private
+
 end
