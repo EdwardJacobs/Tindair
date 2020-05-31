@@ -25,7 +25,9 @@
   </div>
 
   <% if resource.photos.attached? %>
-    <%= cl_image_tag("tbfjjsbvqtghphhpe1ym.jpg") %>
+    <% resource.photos.each do |photo| %>
+      <%= cl_image_tag photo.key %>
+    <% end %>
   <% end %>
 
 
