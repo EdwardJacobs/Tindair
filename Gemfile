@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 ruby '2.6.4'
 
 gem 'bootsnap', require: false
+gem 'cloudinary', '~> 1.12.0'
 gem 'devise'
 gem 'figaro'
 gem 'hub'

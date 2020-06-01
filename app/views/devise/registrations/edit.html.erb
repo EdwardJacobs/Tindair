@@ -24,15 +24,8 @@
   </div>
 
   <div class="input-group">
-    <%= f.label :images %>
-    <%= f.file_field :images, multiple: true %>
+    <%= f.input :photo, as: :file %>
   </div>
-
-  <% if resource.images.attached? %>
-    <% resource.images.each do |image| %>
-      <%= image_tag image, width: '200px' %>
-    <% end %>
-  <% end %>
 
   <div class="form-actions">
     <%= f.button :submit, "Update" %>
