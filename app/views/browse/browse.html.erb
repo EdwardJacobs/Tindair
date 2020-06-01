@@ -1,11 +1,16 @@
 <ul id="slides">
-  <% @users.each do |user| %>
-  <li class="slide" data-id="<%= user.id %>">
+  <% @users.each_with_index do |user, i| %>
+  <li class="slide <%= 'showing' if i == 0 %>" data-id="<%= user.id %>">
+    <% if user.photo.attached? %>
     <div class="image-carousel" style="background-image: url('<%= cl_image_path user.photo.key, height: 300, width: 400, crop: :fill %>')">
-      <p><%= user.first_name %></p>
 
     </div>
-
+    <% end %>
+    <div class="user-details">
+      <span class="user-name"><%= user.first_name %></span>, 31<br/>
+      <i class="fa fa-graduation-cap mr-1"></i> Job /Studies <br/>
+      <i class="fa fa-map-marker mr-3"></i> Location
+    </div>
   </li>
   <% end %>
 </ul>

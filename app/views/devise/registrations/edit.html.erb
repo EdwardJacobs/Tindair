@@ -27,6 +27,10 @@
     <%= f.input :photo, as: :file %>
   </div>
 
+  <% if resource.photo.attached? %>
+    <%= cl_image_tag photo.key %>
+  <% end %>
+
   <div class="form-actions">
     <%= f.button :submit, "Update" %>
   </div>

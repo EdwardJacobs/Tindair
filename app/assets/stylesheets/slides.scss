@@ -14,7 +14,6 @@
   height: 100%;
   opacity: 0;
   z-index: 1;
-  font-size: 40px;
   padding: 40px;
   box-sizing: border-box;
   background: #333;
@@ -24,6 +23,21 @@
   -moz-transition: opacity 1s;
   -o-transition: opacity 1s;
   transition: opacity 1s;
+}
+
+.user-details {
+  position: absolute;
+  font-size: 28px;
+  bottom: 50px;
+  left: 50%;
+  width: 200px;
+  margin-left: -100px;
+  // text-align: center;
+  font-size: 18px;
+
+  .user-name {
+    font-size: 28px;
+  }
 }
 
 .showing {
@@ -41,8 +55,8 @@
 }
 
 .image-carousel {
-  width: 400px;
-  height: 600px;
+  width: 600px;
+  height: 400px;
   margin: 0 auto;
   background-size: cover;
   background-repeat: no-repeat;
