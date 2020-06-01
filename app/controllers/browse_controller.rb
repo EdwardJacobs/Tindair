@@ -4,7 +4,8 @@ class BrowseController < ApplicationController
     @users = User.where.not(id: current_user)
   end
 
-  def accept
+  def approve
+    logger.debug "User id for matching is #{params[:id]}"
 
   end
 
