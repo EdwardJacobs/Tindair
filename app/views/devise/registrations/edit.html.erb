@@ -29,6 +29,10 @@
     <%= f.button :submit, "Update" %>
   </div>
 
+  <% if resource.photo? %>
+    <%= image_tag photo %>
+  <% end %>
+
 <% end %>
 
 <h3>Cancel my account</h3>
