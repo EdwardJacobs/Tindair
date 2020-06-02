@@ -5,10 +5,10 @@ class BrowseController < ApplicationController
     liked_user_ids << current_user.id
     # @users = User.where.not(id: liked_user_ids)
     @users = User.all
+    @matches = current_user.matches
   end
 
   def matches
-    @matches = current_user.matches
   end
 
   def approve

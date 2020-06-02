@@ -1,27 +1,36 @@
-<ul id="slides">
-  <% @users.each_with_index do |user, i| %>
-    <li class="slide <%= 'showing' if i == 0 %>" data-id="<%= user.id %>">
-      <% if user.photo? %>
-        <div class="image-carousel" style="background-image: url('<%= cl_image_path user.photo %>')">
-      <% else %>
-        <div class="image-carousel" style="background-image: url('<%= image_path 'angela.jpg' %>')">
-      <% end %>
+<div class="container-fluid p-0 bg-light">
+  <div class="row">
+    <div class="col-3 col-md-4">
+      <%= render "browse/matches" %>
+    </div>
 
+    <div class="col-9 col-md-8">
+      <ul id="slides">
+        <% @users.each_with_index do |user, i| %>
+          <li class="slide <%= 'showing' if i == 0 %>" data-id="<%= user.id %>">
+            <% if user.photo? %>
+              <div class="image-carousel" style="background-image: url('<%= cl_image_path user.photo %>')">
+            <% else %>
+              <div class="image-carousel" style="background-image: url('<%= image_path 'angela.jpg' %>')">
+              </div>
+            <% end %>
+
+            <div class="user-details">
+              <span class="user-name"><%= user.first_name %></span>, 31<br/>
+              <i class="fa fa-graduation-cap mr-1"></i> Job /Studies <br/>
+              <i class="fa fa-map-marker mr-3"></i> Location
+            </div>
+          </li>
+        <% end %>
+      </ul>
+      <div id="slide-controls">
+        <span class="controls" id="decline"><i class="fa fa-times-circle fa-2x"></i></span>
+        <span class="controls" id="approve"><i class="fa fa-heart fa-2x"></i></span>
       </div>
-
-      <div class="user-details">
-        <span class="user-name"><%= user.first_name %></span>, 31<br/>
-        <i class="fa fa-graduation-cap mr-1"></i> Job /Studies <br/>
-        <i class="fa fa-map-marker mr-3"></i> Location
-      </div>
-    </li>
-  <% end %>
-</ul>
-
-<div id="slide-controls">
-  <span class="controls" id="decline"><i class="fa fa-times-circle fa-2x"></i></span>
-  <span class="controls" id="approve"><i class="fa fa-heart fa-2x"></i></span>
+    </div>
+  </div>
 </div>
+
 
 
 <% @users.each do |user| %>
