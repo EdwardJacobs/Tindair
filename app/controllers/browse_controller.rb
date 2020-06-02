@@ -6,6 +6,10 @@ class BrowseController < ApplicationController
     @users = User.where.not(id: liked_user_ids)
   end
 
+  def matches
+    @matches = current_user.matches
+  end
+
   def approve
     user_id = params[:id]
     # user swipes right
