@@ -1,7 +1,13 @@
-$(function() {
+$(function(){
   var $activeSlide = $('#slides .slide:first-child')
 
+  // show first slide
   // $activeSlide.addClass('showing');
+
+  $("match-tile").on("click", function() {
+    var user_id = $(this).data("id");
+    console.log(user_id);
+  })
 
   $("#decline").on("click", function(){
     goToSlide('decline');
