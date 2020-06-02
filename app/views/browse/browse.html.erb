@@ -23,6 +23,9 @@
   <span class="controls" id="approve"><i class="fa fa-heart fa-2x"></i></span>
 </div>
 
+
 <% @users.each do |user| %>
-  <%= cl_image_tag user.photo if user.photo? %>
+  <% if user.photo? %>
+    <%= cl_image_path user.photo %>
+  <% end %>
 <% end %>
