@@ -55,6 +55,6 @@
 
 <% @users.each do |user| %>
   <% if user.photo? %>
-    <%= cl_image_path user.photo %>
+    <%= cl_image_tag user.photo %>
   <% end %>
 <% end %>

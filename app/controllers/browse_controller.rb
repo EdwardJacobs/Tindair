@@ -9,6 +9,7 @@ class BrowseController < ApplicationController
   end
 
   def matches
+    @matches = current_user.matches
   end
 
   def approve
