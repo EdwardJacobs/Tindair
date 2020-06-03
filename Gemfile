@@ -2,10 +2,10 @@ source 'https://rubygems.org'
 ruby '2.6.4'
 
 gem 'bootsnap', require: false
-gem 'cloudinary', '~> 1.12.0'
 gem 'carrierwave', '~> 2.0'
+gem 'cloudinary', '~> 1.12.0'
+
 gem 'devise'
-gem 'figaro'
 gem 'hub'
 #gem 'jbuilder', '~> 2.0'
 gem 'pg', '~> 0.21'
@@ -20,9 +20,6 @@ gem 'sassc-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
-
-# image uploads to Amazon S3
-gem "aws-sdk-s3", require: false
 
 group :development do
   gem 'web-console', '>= 3.3.0'
