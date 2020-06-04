@@ -1,6 +1,5 @@
 <div class="bg-danger profile-bar">
-  <%= link_to "", class: "d-block h3 text-white pl-2 pt-2 pb-2" do %>
-    <%= image_tag 'angela.jpg', width: '40px', height: '40px', class: 'profile-thumb rounded-circle mr-3' %>
-    My Profile
-  <% end %>
+  <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "float-right text-white mt-2" %>
+  <%= link_to image_tag 'angela.jpg', width: '40px', height: '40px', class: 'profile-thumb rounded-circle mr-3' %>
+  <%= link_to "My Profile", edit_user_registration_path, class: "my-profile text-white" %>
 </div>

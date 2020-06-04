@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-3 col-md-4 bg-white">
+  <div class="col-md-4 bg-white">
     <%= render 'shared/profile_bar' %>
 
     <ul class="nav nav-tinder-sidebar ml-4 mt-3 mb-3" id="pills-tab" role="tablist">
@@ -24,7 +24,7 @@
 
   </div>
 
-  <div class="col-9 col-md-8">
+  <div class="col-md-8">
     <ul id="slides">
       <% @users.each_with_index do |user, i| %>
         <li class="slide <%= 'showing' if i == 0 %>" data-id="<%= user.id %>">
@@ -49,9 +49,3 @@
     </div>
   </div>
 </div>
-
-<% @users.each do |user| %>
-  <% if user.photo? %>
-    <%= cl_image_tag user.photo %>
-  <% end %>
-<% end %>
