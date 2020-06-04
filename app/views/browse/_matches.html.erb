@@ -1,10 +1,7 @@
 <% @matches.each do |match| %>
   <div class="col-sm-4 mt-4">
     <% if match.photo? %>
-      <div class="match-tile" data-id="<%= match.id %>" style="background-image: url('<%= cl_image_path match.photo %>')">
-      </div>
-    <% else %>
-      <div class="match-tile" data-id="<%= match.id %>" style="background-image: url('<%= image_path 'angela.jpg' %>')">
+      <div class="match-tile" data-id="<%= match.id %>" style="background-image: url('<%= image_path match.photo %>')">
         <p class="text-white"><%= match.first_name %></p>
       </div>
     <% end %>
