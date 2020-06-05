@@ -43,34 +43,10 @@
       <span class="controls" id="decline"><i class="fa fa-times-circle fa-2x"></i></span>
       <span class="controls" id="approve"><i class="fa fa-heart fa-2x"></i></span>
     </div>
+    <%= render "browse/conversation" %>
   </div>
 </div>
 
-<div id="conversation">
-  <div class="row">
-    <div class="col-12 top-bar">
-      <%= link_to cl_image_tag(@users.first.photo, width: '40px', height: '40px', class: 'float-left profile-thumb rounded-circle mr-3'), "#" %>
-      <span><%= @users.first.first_name %></span>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-12">
-      <p>You matched with <span><%= @users.first.first_name %> </span><%= time_ago_in_words @users.first.created_at %> ago.</p>
-      <%= link_to cl_image_tag(@users.first.photo, width: '200px', height: '200', class: 'rounded-circle'), "#" %>
-      <p>Send them a message and make them smile :)</p>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-12">
-      <form>
-        <div class="form-group">
-          <input type="text" name="message" value="" placeholder="Enter your message and press send" class="form-control">
-          <input type="submit" name="submit" value="Send" class="btn btn-success">
-        </div>
-      </form>
-    </div>
-  </div>
-</div>
 
 
 

@@ -18,11 +18,18 @@
 }
 
 #conversation {
-  width: 400px;
-  height: 600px;
+  width: 96%;
+  height: 96%;
   position: absolute;
-  right: 20%;
-  top: 20px;
+  left: 2%;
+  top: 2%;
   z-index: 1000;
-  background: #fff
+  background: #fff;
+  padding: 30px;
+
+  .top-bar {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+  }
 }
