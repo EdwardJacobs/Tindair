@@ -1,5 +1,5 @@
 .profile-bar {
-  padding: 15px 25px;
+  padding: 15px 30px;
   margin-right: -15px;
   background: linear-gradient(262deg, #ff7854, #fd267d);
 
@@ -15,13 +15,9 @@
   a:hover {
     text-decoration: none;
   }
-
-  .nav-tinder-sidebar .nav-link.active {
-    border-bottom: 2px solid #ff0000;
-  }
 }
 
-.nav-tinder-sidebar .nav-link-active {
+.nav-tinder-sidebar .nav-link.active {
   border-bottom: 2px solid #fd267d;
 }
 

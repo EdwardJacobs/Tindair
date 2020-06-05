@@ -16,3 +16,13 @@
   margin: 0;
   font-weight: bold;
 }
+
+#conversation {
+  width: 400px;
+  height: 600px;
+  position: absolute;
+  right: 20%;
+  top: 20px;
+  z-index: 1000;
+  background: #fff
+}
