@@ -6,9 +6,12 @@ $(function(){
 
   $("match-tile").on("click", function() {
     var user_id = $(this).data("id");
-    console.log(user_id);
 
-    $("conversation").show();
+    $("#conversation").show();
+  });
+
+  $(".close-conversation").on("click", function() {
+    $("#conversation").hide();
   })
 
 
