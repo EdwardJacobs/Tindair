@@ -1,7 +1,7 @@
 <div id="conversation">
   <div class="row">
     <div class="col-12 top-bar">
-      <i class="fa fa-times fa-2x text-muted float-right close-conversation"></i>
+      <i class="fa fa-times fa-2x text-muted float-right" id="close-conversation"></i>
       <%= link_to cl_image_tag(@users.first.photo, width: '40px', height: '40px', class: 'float-left profile-thumb rounded-circle mr-3'), "#" %>
       <p class="text-muted mt-2">You matched with <%= @users.first.first_name %> on 6/4/20 </p>
     </div>

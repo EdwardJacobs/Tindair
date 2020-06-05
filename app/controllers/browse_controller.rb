@@ -36,6 +36,20 @@ class BrowseController < ApplicationController
     # user swipes left
   end
 
-  private
+  def conversation
+    id = params[:id]
+    @profile = User.find(id)
 
+    if @profile.present?
+
+      respond_to do |format|
+
+        format.js {
+          render "browse/conversation"
+        }
+
+      end
+    end
+
+  end
 end

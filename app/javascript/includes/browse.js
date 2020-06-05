@@ -4,13 +4,19 @@ $(function(){
   // show first slide
   // $activeSlide.addClass('showing');
 
-  $("match-tile").on("click", function() {
+  $(".match-tile").on("click", function() {
     var user_id = $(this).data("id");
 
-    $("#conversation").show();
+    $.ajax({
+      url: "/get/conversation/" + user_id,
+      method: "post",
+      dataType: "ajax"
+    })
+
+    // $("#conversation").show();
   });
 
-  $(".close-conversation").on("click", function() {
+  $("#close-conversation").on("click", function() {
     $("#conversation").hide();
   })
 
