@@ -12,6 +12,8 @@ $(function(){
       method: "post",
       dataType: "script"
     })
+
+    $("#conversation").show();
   });
 
   $("#close-conversation").on("click", function() {

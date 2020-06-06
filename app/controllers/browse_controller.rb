@@ -4,9 +4,9 @@ class BrowseController < ApplicationController
     liked_user_ids = Like.where(user_id: current_user.id).map(&:liked_user_id)
     # add current user to array as to not display own photo
     liked_user_ids << current_user.id
-    # @users = User.where.not(id: liked_user_ids)
+    @users = User.where.not(id: liked_user_ids)
     # display all users while testing browser
-    @users = User.all
+    # @users = User.all
     @matches = current_user.matches
   end
 
@@ -37,8 +37,7 @@ class BrowseController < ApplicationController
   end
 
   def conversation
-    # remove users and get @profile to work in view
-    @users = User.all
+    # remove @users and get @profile to work in view
     id = params[:id]
     @profile = User.find(id)
     likes = Like.where(user_id: current_user.id, liked_user_id: id)
