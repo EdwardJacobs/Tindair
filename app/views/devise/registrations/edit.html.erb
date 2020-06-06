@@ -28,8 +28,8 @@
     <%= f.button :submit, "Update" %>
   </div>
 
-  <% if resource.photo? %>
-    <%= cl_image_tag resource.photo, width: '200px', height: '100px' %>
+  <% if resource.photo.attached? %>
+    <%= cl_image_tag resource.photo.key, width: '200px', height: '100px' %>
   <% end %>
 
 
