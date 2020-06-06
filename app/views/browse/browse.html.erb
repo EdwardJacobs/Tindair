@@ -28,7 +28,7 @@
       <% @users.each_with_index do |user, i| %>
         <li class="slide <%= 'showing' if i == 0 %>" data-id="<%= user.id %>">
           <% if user.photo? %>
-            <div class="image-carousel" style="background-image: url('<%= image_path user.photo %>')"></div>
+            <div class="image-carousel" style="background-image: url('<%= cl_image_path user.photo %>')"></div>
           <% end %>
 
           <div class="user-details">

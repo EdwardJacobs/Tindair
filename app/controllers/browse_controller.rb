@@ -37,8 +37,12 @@ class BrowseController < ApplicationController
   end
 
   def conversation
+    # remove users and get @profile to work in view
+    @users = User.all
     id = params[:id]
     @profile = User.find(id)
+    likes = Like.where(user_id: current_user.id, liked_user_id: id)
+    @match = likes.first if likes.size > 0
 
     if @profile.present?
 

@@ -5,5 +5,4 @@ require("channels")
 import "bootstrap";
 
 require("../includes/browse.js")
-// require("../includes/conversation.js")
 

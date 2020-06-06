@@ -10,10 +10,8 @@ $(function(){
     $.ajax({
       url: "/get/conversation/" + user_id,
       method: "post",
-      dataType: "ajax"
+      dataType: "script"
     })
-
-    // $("#conversation").show();
   });
 
   $("#close-conversation").on("click", function() {
