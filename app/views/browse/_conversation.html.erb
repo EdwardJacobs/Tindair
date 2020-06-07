@@ -18,7 +18,7 @@
 </div>
 <div class="row">
   <div class="col-12 mt-5 bottom-bar">
-    <form>
+    <%= form_with model: @message do |form| %>
       <div class="input-group">
         <input type="text" name="message" value="" placeholder="Enter your message and press send" class="form-control form-control-lg">
 
@@ -26,7 +26,7 @@
           <input type="submit" name="submit" value="Send" class="btn btn-success btn-lg pl-5 pr-5">
         </div>
       </div>
-    </form>
+    <% end %>
   </div>
 </div>
 

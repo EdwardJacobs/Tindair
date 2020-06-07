@@ -36,12 +36,13 @@ class BrowseController < ApplicationController
     # user swipes left
   end
 
-  def conversation
+  def open_conversation
     # remove @users and get @profile to work in view
     id = params[:id]
     @profile = User.find(id)
     likes = Like.where(user_id: current_user.id, liked_user_id: id)
     @match = likes.first if likes.size > 0
+    @message = Message.new
 
     if @profile.present?
 
