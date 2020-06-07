@@ -12,13 +12,7 @@ $(function(){
       method: "post",
       dataType: "script"
     })
-
-    $("#conversation").show();
   });
-
-  $("#close-conversation").on("click", function() {
-    $("#conversation").hide();
-  })
 
 
   $("#decline").on("click", function(){
