@@ -42,7 +42,8 @@ class BrowseController < ApplicationController
     @profile = User.find(id)
     likes = Like.where(user_id: current_user.id, liked_user_id: id)
     @match = likes.first if likes.size > 0
-    @message = Message.new
+    @conversation = Conversation.new
+    @message = @conversation.messages.build
 
     if @profile.present?
 
