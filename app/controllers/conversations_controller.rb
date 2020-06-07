@@ -6,15 +6,31 @@ class ConversationsController < ApplicationController
     @conversation.messages.first.user_id = current_user.id
 
     if @conversation.save!
-      logger.debug "conversation has been saved"
+      # logger.debug "conversation has been saved"
     else
-      logger.debug "unable to save conversation"
+      # logger.debug "unable to save conversation"
+    end
+  end
+
+  def update
+    @conversation = Conversation.find(params[:id])
+
+    respond_to do |format|
+      format.js {
+        if @conversation.update!(conversation_params)
+          @messages = @conversation.messages
+          render 'browse/conversation_messages'
+        else
+
+
+        end
+      }
     end
   end
 
   private
 
   def conversation_params
-    params.require(:conversation).permit(:recipient_id, message_attributes: [:body, :account_id])
+    params.require(:conversation).permit(:recipient_id, messages_attributes: [:body, :user_id])
   end
 end

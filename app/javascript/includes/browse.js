@@ -6,7 +6,7 @@ $(function(){
 
   $(".match-tile").on("click", function() {
     var user_id = $(this).data("id");
-    console.log(user_id)
+
     $.ajax({
       url: "/get/conversation/" + user_id,
       method: "post",
@@ -21,8 +21,6 @@ $(function(){
 
   $("#approve").on("click", function(){
     var user_id = $activeSlide.data("id");
-
-    console.log(user_id);
 
     $.ajax({
       url: "/approve/" + user_id,
