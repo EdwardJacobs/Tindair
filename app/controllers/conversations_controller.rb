@@ -5,11 +5,15 @@ class ConversationsController < ApplicationController
     @conversation.sender_id = current_user.id
     @conversation.messages.first.user_id = current_user.id
 
-    if @conversation.save!
-      # logger.debug "conversation has been saved"
-    else
-      # logger.debug "unable to save conversation"
-    end
+    # if @conversation.save!
+    #   # logger.debug "conversation has been saved"
+    # else
+    #   # logger.debug "unable to save conversation"
+    # end
+  end
+
+  def new
+    @conversation = Conversation.new
   end
 
   def update
