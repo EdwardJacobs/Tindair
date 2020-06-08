@@ -21,15 +21,17 @@
                 hint: "we need your current password to confirm your changes",
                 required: true,
                 input_html: { autocomplete: "current-password" } %>
-    <%= f.input :photo, as: :file %>
+    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
   </div>
 
   <div class="form-actions">
     <%= f.button :submit, "Update" %>
   </div>
 
-  <% if resource.photo.attached? %>
-    <%= cl_image_tag resource.photo.key, width: '150px', height: '150px' %>
+  <% if resource.photos.attached? %>
+    <% resource.photos.each do |photo| %>
+      <%= cl_image_tag photo.key, width: '150px', height: '150px' %>
+    <% end %>
   <% end %>
 
 
