@@ -44,7 +44,9 @@ class BrowseController < ApplicationController
     @match = likes.first if likes.size > 0
 
     conversation = Conversation.between(id, current_user.id)
+
     @conversation = conversation.size > 0 ? conversation.first : Conversation.new
+    # @messages = @conversation.messages if @converation.persisted?
     @message = @conversation.messages.build
 
     if @profile.present?
