@@ -4,7 +4,7 @@ class BrowseController < ApplicationController
     liked_user_ids = Like.where(user_id: current_user.id).map(&:liked_user_id)
     # add current user to array as to not display own photo
     liked_user_ids << current_user.id
-    @users = User.where.not(id: liked_user_ids)
+    @users = User.includes(:photos_attachments).where.not(id: liked_user_ids)
     # display all users while testing browser
     # @users = User.all
     @matches = current_user.matches
@@ -46,7 +46,7 @@ class BrowseController < ApplicationController
     conversation = Conversation.between(id, current_user.id)
 
     @conversation = conversation.size > 0 ? conversation.first : Conversation.new
-    # @messages = @conversation.messages if @converation.persisted?
+    @messages = @conversation.messages.includes(user: :photos_attachments) if @conversation.persisted?
     @message = @conversation.messages.build
 
     if @profile.present?
