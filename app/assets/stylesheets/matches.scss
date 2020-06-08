@@ -50,9 +50,13 @@
 }
 
 .conversation-message {
-    background: #f2f2f2;
+  background: #f2f2f2;
 
-    p {
-      margin: 0;
-    }
+  p {
+    margin: 0;
   }
+}
+
+.sent-by-me .conversation-message {
+  background: #8cc1ff;
+}
