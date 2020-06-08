@@ -1,8 +1,8 @@
 <div class="row">
   <div class="col-12 top-bar">
     <i class="fa fa-times fa-2x text-muted float-right" id="close-conversation"></i>
-    <% if @profile && @profile.photo.attached? %>
-      <%= link_to cl_image_tag(@profile.photo.key, width: '40px', height: '40px', class: 'float-left profile-thumb rounded-circle mr-3'), "#" %>
+    <% if @profile && @profile.photos.attached? %>
+      <%= link_to cl_image_tag(@profile.photos.first.key, width: '40px', height: '40px', class: 'float-left profile-thumb rounded-circle mr-3'), "#" %>
       <p class="text-muted mt-2">You matched with <%= @profile.first_name %> on <%= @match.created_at.strftime("%m/%d/%Y") %>.</p>
     <% end %>
   </div>
@@ -10,9 +10,9 @@
 <div class="row">
   <div class="col-12">
       <div id="initiate-conversation">
-        <% if @profile && @profile.photo.attached? %>
+        <% if @profile && @profile.photos.attached? %>
           <p class="mt-3">You matched with <span><%= @profile.first_name %> </span><%= time_ago_in_words @profile.created_at %> ago.</p>
-          <%= link_to cl_image_tag(@profile.photo.key, width: '200px', height: '200px', class: 'rounded-circle mt-3 mb-5'), "#" %>
+          <%= link_to cl_image_tag(@profile.photos.first.key, width: '200px', height: '200px', class: 'rounded-circle mt-3 mb-5'), "#" %>
         <% end %>
         <p>Send them a message and make them smile :) </p>
       </div>

@@ -5,7 +5,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_one_attached :photo
+  has_many_attached :photos
 
   def matches
     liked_user_ids = Like.where(user_id: self.id).map(&:liked_user_id)
