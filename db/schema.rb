@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_06_231101) do
+ActiveRecord::Schema.define(version: 2020_06_11_033445) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,12 +45,14 @@ ActiveRecord::Schema.define(version: 2020_06_06_231101) do
     t.index ["sender_id"], name: "index_conversations_on_sender_id"
   end
 
-  create_table "likes", force: :cascade do |t|
-    t.bigint "user_id"
-    t.integer "liked_user_id"
+  create_table "matches", force: :cascade do |t|
+    t.bigint "user_1"
+    t.integer "user_2"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_likes_on_user_id"
+    t.boolean "user_1_approves"
+    t.boolean "user_2_approves"
+    t.index ["user_1"], name: "index_matches_on_user_1"
   end
 
   create_table "messages", force: :cascade do |t|
