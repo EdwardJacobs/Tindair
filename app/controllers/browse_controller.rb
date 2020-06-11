@@ -7,7 +7,7 @@ class BrowseController < ApplicationController
     @users = User.includes(:photos_attachments).where.not(id: liked_user_ids).limit(10)
     # display all users while testing browser
     # @users = User.all
-    @matches = current_user.matches
+    @matches = Match.matches
   end
 
   def match
