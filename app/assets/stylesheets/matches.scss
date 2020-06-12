@@ -17,6 +17,12 @@
   font-weight: bold;
 }
 
+.open-conversation {
+  background: #dedede;
+  border-bottom: 1px solid #ccc;
+  cursor: pointer;
+}
+
 #conversation {
   display: none;
   width: 96%;

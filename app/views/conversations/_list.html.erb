@@ -1,8 +1,12 @@
 <% if @conversations && @conversations.size > 0 %>
-  <% @conversations.each do |conversation| %>
-    <%= profile_thumbnail conversation.user %>
-    <strong><%= conversation.user.first_name %></strong>
-    <%= conversation.messages.last %>
+  <% @conversations.each do |conversation| user = get_user_from_conversation(conversation) %>
+    <div class="row">
+      <div class="col open-conversation" data-id= <%= user.id %>>
+        <%= profile_thumbnail user %>
+        <strong><%= user.first_name %></strong>
+        <%= simple_format conversation.messages.last.body %>
+      </div>
+    </div>
   <% end %>
 <% else %>
   <p>No messages to display.</p>
