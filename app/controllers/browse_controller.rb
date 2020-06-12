@@ -5,9 +5,9 @@ class BrowseController < ApplicationController
     # add current user to array as to not display own photo
     # liked_user_ids << current_user.id
     # display all users while testing browser
-    @users = User.all
+    # @users = User.all
     @matches = Match.matches_for(current_user.id)
-    # @users = User.includes(:photos_attachments).where.not(id: liked_user_ids).limit(10)
+    @users = Match.recommended_matches_for(current_user.id)
   end
 
   def get_more_users
@@ -17,12 +17,12 @@ class BrowseController < ApplicationController
   def approve
     user_id = params[:id]
 
-    match = Match.between(user_id: current_user.id)
+    match = Match.between(user_id, current_user.id)
 
     if match.present?
       match = match.first
 
-      if match.user_id = current_user.id
+      if match.user_1 = current_user.id
         match.user_1_approves = true
       else
         match.user_2_approves = true
@@ -39,6 +39,25 @@ class BrowseController < ApplicationController
 
   def decline
     # user swipes left
+    user_id = params[:id]
+
+    match = Match.between(user_id, current_user.id)
+
+    if match.present?
+      match = match.first
+
+      if match.user_1 = current_user.id
+        match.user_1_approves = false
+      else
+        match.user_2_approves = false
+      end
+    else
+      match = Match.new(user_1: current_user.id, user_2: user_id, user_1_approves: false)
+    end
+
+    if match.save
+    else
+    end
   end
 
   def open_conversation
