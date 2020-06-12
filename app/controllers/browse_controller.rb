@@ -5,9 +5,9 @@ class BrowseController < ApplicationController
     # add current user to array as to not display own photo
     # liked_user_ids << current_user.id
     # display all users while testing browser
-    # @users = User.all
+    @users = User.all
     @matches = Match.matches_for(current_user.id)
-    @users = Match.recommended_matches_for(current_user.id)
+    # @users = User.includes(:photos_attachments).where.not(id: liked_user_ids).limit(10)
   end
 
   def match
