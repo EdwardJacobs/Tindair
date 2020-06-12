@@ -1,13 +1,13 @@
 class BrowseController < ApplicationController
 
   def browse
-    liked_user_ids = Like.where(user_id: current_user.id).pluck(:liked_user_id)
+    # liked_user_ids = Like.where(user_id: current_user.id).pluck(:liked_user_id)
     # add current user to array as to not display own photo
-    liked_user_ids << current_user.id
-    @users = User.includes(:photos_attachments).where.not(id: liked_user_ids).limit(10)
+    # liked_user_ids << current_user.id
     # display all users while testing browser
     # @users = User.all
-    @matches = Match.matches
+    @matches = Match.matches_for(current_user.id)
+    @users = Match.recommended_matches_for(current_user.id)
   end
 
   def match

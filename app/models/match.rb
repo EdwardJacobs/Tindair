@@ -13,4 +13,16 @@ class Match < ApplicationRecord
     User.where(id: user_ids)
   end
 
+  scope :recommended_matches_for, -> id do
+    matches = where("(user_1 = ? AND user_1_approves IS NOT NULL) OR (user_2 = ? AND user_2_approves IS NOT NULL)", id, id)
+
+    ignore_ids = [id]
+    matches.each do |match|
+      new_id = match.user_1 == id ? match.user_2 : match.user_1
+      ignore_ids << new_id
+    end
+
+    User.includes(:photos_attachments).where.not(id: ignore_ids).limit(10)
+  end
+
 end
