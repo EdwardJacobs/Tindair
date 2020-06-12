@@ -16,6 +16,14 @@ $(function(){
 
 
   $("#decline").on("click", function(){
+    var user_id = $activeSlide.data("id");
+
+    $.ajax({
+      url: "/decline/" + user_id,
+      method: "post",
+      dataType: "ajax"
+    })
+
     goToSlide('decline');
   })
 
