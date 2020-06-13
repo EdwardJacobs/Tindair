@@ -8,8 +8,8 @@
   </div>
 </div>
 <div class="row">
-  <div class="col-12">
-    <% if @conversation && @conversation.new_record? %>
+  <div class="col-12 text-center">
+
       <div id="initiate-conversation">
         <% if @profile && @profile.photos.attached? %>
           <p class="mt-3">You matched with <span><%= @profile.first_name %> </span><%= time_ago_in_words @profile.created_at %> ago.</p>
@@ -17,8 +17,8 @@
         <% end %>
         <p>Send them a message and make them smile :) </p>
       </div>
-    <% end %>
-    <div id="conversation_messages"><%= render partial: 'browse/messages' unless @conversation && @conversation.new_record? %></div>
+
+    <div id="conversation_messages"></div>
   </div>
 </div>
 <div class="row">

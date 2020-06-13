@@ -12,10 +12,6 @@ class ConversationsController < ApplicationController
     # end
   end
 
-  def new
-    @conversation = Conversation.new
-  end
-
   def update
     @conversation = Conversation.find(params[:id])
 
