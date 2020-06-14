@@ -1,0 +1,9 @@
+<% if @conversations && @conversations.size > 0 %>
+  <% @conversations.each do |conversation| %>
+    <%= profile_thumnail conversation.user %>
+    <strong><%= conversation.user.first_name %></strong>
+    <%= conversation.messages.last %>
+  <% end %>
+<% else %>
+  <p>No messages to display.</p>
+<% end %>
