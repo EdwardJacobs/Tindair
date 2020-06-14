@@ -1,18 +1,16 @@
 class BrowseController < ApplicationController
 
   def browse
-    liked_user_ids = Like.where(user_id: current_user.id).map(&:liked_user_id)
+    liked_user_ids = Like.where(user_id: current_user.id).pluck(:liked_user_id)
     # add current user to array as to not display own photo
     liked_user_ids << current_user.id
-    @users = User.includes(:photos_attachments).where.not(id: liked_user_ids)
+    @users = User.includes(:photos_attachments).where.not(id: liked_user_ids).limit(10)
     # display all users while testing browser
     # @users = User.all
     @matches = current_user.matches
   end
 
-  def match
-    @matches = current_user.matches
-  end
+
 
   def approve
     user_id = params[:id]
