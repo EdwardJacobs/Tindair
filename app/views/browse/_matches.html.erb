@@ -1,5 +1,5 @@
 <% @matches.each do |match| %>
-  <div class="col-sm-4 mt-4">
+  <div class="col-sm-4 mt-4 ml-2">
     <% if match.photos.attached? %>
       <div class="match-tile" data-id="<%= match.id %>" style="background-image: url('<%= cl_image_path match.photos.first.key %>')">
         <p class="text-white"><%= match.first_name %></p>
