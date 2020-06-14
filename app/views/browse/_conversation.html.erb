@@ -8,7 +8,7 @@
   </div>
 </div>
 <div class="row">
-  <div class="col-12">
+  <div class="col-12 text-center">
     <% if @conversation && @conversation.new_record? %>
       <div id="initiate-conversation">
         <% if @profile && @profile.photos.attached? %>
@@ -18,7 +18,7 @@
         <p>Send them a message and make them smile :) </p>
       </div>
     <% end %>
-    <div id="conversation_messages"><%= render partial: 'browse/messages' unless @conversation && @conversation.new_record? %></div>
+    <div id="conversation_messages"><%= render partial: 'browse/messages' %></div>
   </div>
 </div>
 <div class="row">
