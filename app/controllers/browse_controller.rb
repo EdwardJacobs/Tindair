@@ -3,6 +3,7 @@ class BrowseController < ApplicationController
   def browse
     @matches = Match.matches_for(current_user.id)
     @users = Match.recommended_matches_for(current_user.id)
+    @conversations = Conversation.includes(:messages).where("conversations.sender_id = ? OR conversations.recipient_id = ?", current_user.id, current_user.id)
   end
 
 
@@ -31,6 +32,25 @@ class BrowseController < ApplicationController
 
   def decline
     # user swipes left
+    user_id = params[:id]
+    logger.debug "User id for matching is #{params[:id]}"
+    match = Match.between(user_id, current_user.id)
+    if match.present?
+      match = match.first
+      if match.user_1 = current_user.id
+        match.user_1_approves = false
+      else
+        match.user_2_approves = false
+      end
+    else
+      match = Match.new(user_1: current_user.id, user_2: user_id, user_1_approves: false)
+    end
+
+    if match.save
+      # show successful save
+    else
+
+    end
   end
 
   def open_conversation
