@@ -1,6 +1,5 @@
 class Match < ApplicationRecord
   validates_uniqueness_of :user_1, scope: :user_2
-  has_many_attached :photos
 
   scope :between, -> (user_1, user_2) do
       where("(user_1 = ? AND user_2 = ?) OR (user_1 = ? AND user_2 = ?)", user_1, user_2, user_2, user_1)
