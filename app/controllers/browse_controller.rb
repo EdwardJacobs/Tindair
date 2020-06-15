@@ -1,32 +1,31 @@
 class BrowseController < ApplicationController
 
   def browse
-    liked_user_ids = Like.where(user_id: current_user.id).pluck(:liked_user_id)
-    # add current user to array as to not display own photo
-    liked_user_ids << current_user.id
-    @users = User.includes(:photos_attachments).where.not(id: liked_user_ids).limit(10)
-    # display all users while testing browser
-    # @users = User.all
-    @matches = current_user.matches
+    @matches = Match.matches_for(current_user.id)
+    @users = Match.recommended_matches_for(current_user.id)
   end
 
 
 
   def approve
     user_id = params[:id]
-    # user swipes right
     logger.debug "User id for matching is #{params[:id]}"
-
-    # create like for user
-    new_like = Like.new(liked_user_id: user_id)
-    new_like.user_id = current_user.id
-
-    if new_like.save
-      # check if user already likes us back
-      existing_like = Like.where(user_id: user_id, liked_user_id: current_user.id).count
-      @they_like_us = existing_like > 0
+    match = Match.between(user_id, current_user.id)
+    if match.present?
+      match = match.first
+      if match.user_1 = current_user.id
+        match.user_1_approves = true
+      else
+        match.user_2_approves = true
+      end
     else
-      # issue saving like - return a warning message
+      match = Match.new(user_1: current_user.id, user_2: user_id, user_1_approves: true)
+    end
+
+    if match.save
+      # show successful save
+    else
+
     end
   end
 
@@ -38,8 +37,8 @@ class BrowseController < ApplicationController
     # remove @users and get @profile to work in view
     id = params[:id]
     @profile = User.find(id)
-    likes = Like.where(user_id: current_user.id, liked_user_id: id)
-    @match = likes.first if likes.size > 0
+    match = Match.between(current_user.id, id)
+    @match = match.first if match.present?
 
     conversation = Conversation.between(id, current_user.id)
 
