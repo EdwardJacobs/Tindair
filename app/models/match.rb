@@ -3,7 +3,7 @@ class Match < ApplicationRecord
 
   scope :between, -> (user_1, user_2) do
       where("(user_1 = ? AND user_2 = ?) OR (user_1 = ? AND user_2 = ?)", user_1, user_2, user_2, user_1)
-    end
+  end
 
   scope :matches_for, -> id do
     matches = where("(user_1 = ? OR user_2 = ?) AND (user_1_approves = ? AND user_2_approves = ?)", id, id, true, true)
