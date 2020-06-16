@@ -3,8 +3,8 @@ class BrowseController < ApplicationController
   def browse
     @matches = Match.matches_for(current_user.id)
     # @matches = Match.all
-    @users = Match.recommended_matches_for(current_user.id)
-    # @users = User.all
+    # @users = Match.recommended_matches_for(current_user.id)
+    @users = User.all
     @conversations = Conversation.includes(:messages).where("conversations.sender_id = ? OR conversations.recipient_id = ?", current_user.id, current_user.id)
   end
 

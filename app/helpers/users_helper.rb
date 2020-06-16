@@ -1,6 +1,7 @@
 module UsersHelper
   def profile_thumbnail(user)
-    if user.photos.any?
+    if user && user.photos.any?
+      # cl_image_tag user.photos.first.key, width: '40px', height: '40px', class: 'profile-thumb rounded-circle mr-3' if @users.photos.any?
     end
   end
 

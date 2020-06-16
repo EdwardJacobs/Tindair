@@ -1,11 +1,9 @@
 <div class="row">
 <% @matches.each do |match| %>
   <div class="col-sm-4 mt-4 ml-2">
-
-      <div class="match-tile" data-id="<%= match.id %>"<% if match.photos.attached? %> style="background-image: url('<%= cl_image_path match.photos.first.key %>')"<% end %>>
-        <p class="text-white"><%= match.first_name %></p>
-      </div>
-
+    <div class="match-tile" data-id="<%= match.id %>"<% if match.photos.attached? %> style="background-image: url('<%= cl_image_path match.photos.first.key %>')"<% end %>>
+      <p class="text-white"><%= match.first_name %></p>
+    </div>
   </div>
 <% end %>
 

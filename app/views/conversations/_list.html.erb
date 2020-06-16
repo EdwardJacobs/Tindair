@@ -2,8 +2,8 @@
   <% @conversations.each do |conversation| user = get_user_from_conversation(conversation) %>
     <div class="row">
       <div class="col open-conversaton" data-id="<%= user.id %>">
-
-        <strong><%= user %></strong>
+        <%= profile_thumbnail user %>
+        <strong><%= user.first_name %></strong>
         <%= conversation.messages.last.body if @messages %>
       </div>
     </div>
