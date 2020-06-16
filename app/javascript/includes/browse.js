@@ -14,8 +14,24 @@ $(function(){
     })
   });
 
+  $(".open-conversation").on("click", function() {
+    var user_id = $(this).data("id");
+
+    $.ajax({
+      url: "/get/conversation/" + user_id,
+      method: "post",
+      dataType: "script"
+    })
+  });
 
   $("#decline").on("click", function(){
+    var user_id = $activeSlide.data("id");
+
+    $.ajax({
+      url: "/decline/" + user_id,
+      method: "post",
+      dataType: "ajax"
+    })
     goToSlide('decline');
   })
 

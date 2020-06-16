@@ -53,6 +53,10 @@
   }
 }
 
+#decline, #approve {
+  cursor: pointer;
+}
+
 .image-carousel {
   border-radius: 4px;
   width: 300px;
@@ -60,6 +64,7 @@
   margin: 0 auto;
   background-size: cover;
   background-repeat: no-repeat;
+  background-color: #ddd;
 }
 
 
