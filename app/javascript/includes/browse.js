@@ -14,6 +14,13 @@ $(function(){
     })
   });
 
+  $(".profile-info").on("click", function() {
+    var details = $(this).closest(".slide").find(".more-details");
+    details.toggle();
+    // toggle slide controls
+    $("#slide-controls").toggleClass("open")
+  })
+
   $(".open-conversation").on("click", function() {
     var user_id = $(this).data("id");
 
