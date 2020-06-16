@@ -3,8 +3,10 @@
     <div class="row">
       <div class="col open-conversation" data-id="<%= user.id if user %>">
         <%= profile_thumbnail user %>
-          <strong><%= user.first_name if user %>:</strong>
-          <%= conversation.messages.last.body if conversation.messages.any? %>
+        <div class="d-inline-block align-middle">
+          <strong><%= user.first_name if user %></strong>
+          <p class="m-0"><%= conversation.messages.last.body if conversation.messages.any? %></p>
+        </div>
       </div>
     </div>
   <% end %>
