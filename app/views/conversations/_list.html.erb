@@ -1,12 +1,14 @@
 <% if @conversations && @conversations.size > 0 %>
   <% @conversations.each do |conversation| user = get_user_from_conversation(conversation) %>
     <div class="row">
-      <div class="col open-conversation rounded" data-id="<%= user.id if user %>">
-        <%= profile_thumbnail user %>
-        <div class="d-inline-block align-middle">
-          <strong><%= user.first_name if user %></strong>
-          <p class="m-0"><%= conversation.messages.last.body if conversation.messages.any? %></p>
-        </div>
+      <div class="col open-conversation rounded" data-id="<%= user.id %>">
+        <% if user.present? %>
+          <%= profile_thumbnail user %>
+          <div class="d-inline-block align-middle">
+            <strong><%= user.first_name if user %></strong>
+            <p class="m-0"><%= conversation.messages.last.body if conversation.messages.any? %></p>
+          </div>
+        <% end %>
       </div>
     </div>
   <% end %>
