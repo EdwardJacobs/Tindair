@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 ruby '2.6.4'
 
 gem 'bootsnap', require: false
-gem 'carrierwave', '~> 2.0'
+gem 'carrierwave', '~> 2.1'
 gem 'cloudinary', '~> 1.12.0'
 
 gem 'devise'
